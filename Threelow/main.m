@@ -25,11 +25,11 @@ int main(int argc, const char * argv[])
         [dice4 randomizeValue];
         [dice5 randomizeValue];
         
-        NSLog(@"Dice 1 : %d ",dice1.m_CurrentValue);
-        NSLog(@"Dice 2 : %d ",dice2.m_CurrentValue);
-        NSLog(@"Dice 3 : %d ",dice3.m_CurrentValue);
-        NSLog(@"Dice 4 : %d ",dice4.m_CurrentValue);
-        NSLog(@"Dice 5 : %d ",dice5.m_CurrentValue);
+        NSLog(@"Dice 1 : %ld ",(long)dice1.m_CurrentValue);
+        NSLog(@"Dice 2 : %ld ",(long)dice2.m_CurrentValue);
+        NSLog(@"Dice 3 : %ld ",(long)dice3.m_CurrentValue);
+        NSLog(@"Dice 4 : %ld ",(long)dice4.m_CurrentValue);
+        NSLog(@"Dice 5 : %ld ",(long)dice5.m_CurrentValue);
     }
     return 0;
 }
