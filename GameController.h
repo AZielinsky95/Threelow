@@ -13,6 +13,7 @@
 
 @property NSMutableDictionary* m_Dice;
 @property NSMutableDictionary* m_HeldDice;
+@property int m_NumberOfRolls;
 
 -(void)holdDie:(NSString*)userInput;
 -(void)resetDice;

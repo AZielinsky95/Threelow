@@ -29,6 +29,8 @@
         _m_Dice[@(3)] = dice3;
         _m_Dice[@(4)] = dice4;
         _m_Dice[@(5)] = dice5;
+        
+        _m_NumberOfRolls = 0;
     }
     return self;
 }
@@ -55,18 +57,13 @@
     [self printHeldDice];
     
     NSLog(@"Score:  %d",score);
+    
+
+    NSLog(@"Number of rolls since last reset :  %d ",self.m_NumberOfRolls);
 }
 
 -(void)holdDie:(NSString*)userInput
 {
-    
-    if([userInput isEqualToString:(@"")])
-    {
-        NSLog(@"No Dice to hold have been inputted! :( ");
-    }
-    else
-    {
-        
     NSArray *components = [userInput componentsSeparatedByString:(@",")];
         
     for(NSString *index in components)
@@ -87,7 +84,6 @@
     }
 
         [self printHeldDice];
-    }
 }
 
 -(void)printHeldDice
@@ -105,6 +101,7 @@
         _m_Dice[dice] = self.m_HeldDice[dice];
     }
     
+    self.m_NumberOfRolls = 0;
     [self.m_HeldDice removeAllObjects];
 }
 
