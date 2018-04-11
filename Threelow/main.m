@@ -29,8 +29,9 @@ int main(int argc, const char * argv[])
                for(NSNumber *index in controller.m_Dice)
                {
                    [controller.m_Dice[index] randomizeValue];
-                   NSLog(@"Dice %@ : %ld ",index,(long)[controller.m_Dice[index] m_CurrentValue]);
                }
+                
+                [controller printScore];
             }
             else if([userInput isEqualToString:(@"reset")])
             {

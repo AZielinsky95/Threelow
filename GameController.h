@@ -17,5 +17,6 @@
 -(void)holdDie:(NSString*)userInput;
 -(void)resetDice;
 -(void)printHeldDice;
+-(void)printScore;
 
 @end

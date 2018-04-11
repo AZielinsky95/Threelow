@@ -33,6 +33,25 @@
     return self;
 }
 
+-(void)printScore
+{
+    for(NSNumber *index in self.m_Dice)
+    {
+        NSLog(@"Dice %@ : %ld ",index,(long)[self.m_Dice[index] m_CurrentValue]);
+    }
+    
+    int score = 0;
+    
+    for(NSNumber *dice in self.m_HeldDice)
+    {
+        score += [self.m_HeldDice[dice] m_CurrentValue];
+    }
+    
+    [self printHeldDice];
+    
+    NSLog(@"Score:  %d",score);
+}
+
 -(void)holdDie:(NSString*)userInput
 {
     
