@@ -20,8 +20,8 @@ int main(int argc, const char * argv[])
         
         while(true)
         {
-            NSLog(@"TYPE 'roll' to Roll your 5 dice");
-
+            NSLog(@"TYPE 'roll' to Roll your dice or TYPE 'reset' to reset Dice");
+            
             NSString *userInput =  [inputHandler getUserInput];
             
             if([userInput isEqualToString:(@"roll")])
@@ -31,6 +31,10 @@ int main(int argc, const char * argv[])
                    [controller.m_Dice[index] randomizeValue];
                    NSLog(@"Dice %@ : %ld ",index,(long)[controller.m_Dice[index] m_CurrentValue]);
                }
+            }
+            else if([userInput isEqualToString:(@"reset")])
+            {
+                [controller resetDice];
             }
             
             NSLog(@"TYPE 'Dice Numbers to Hold'");

@@ -61,18 +61,27 @@
              [_m_Dice removeObjectForKey:(i)];
         }
     }
-    
+
+        [self printHeldDice];
+    }
+}
+
+-(void)printHeldDice
+{
     for(NSNumber *index in self.m_HeldDice)
     {
         NSLog(@"Holding Dice [%@]", index);
     }
-        
+}
+
+-(void)resetDice
+{
+    for(NSNumber *dice in self.m_HeldDice)
+    {
+        _m_Dice[dice] = self.m_HeldDice[dice];
     }
     
-    
-     //[self.m_HeldDice addObject:(_m_Dice[diceIndex])];
-     //[_m_Dice removeObject:(_m_Dice[diceIndex])];
-    
+    [self.m_HeldDice removeAllObjects];
 }
 
 @end

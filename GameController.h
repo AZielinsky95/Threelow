@@ -15,5 +15,7 @@
 @property NSMutableDictionary* m_HeldDice;
 
 -(void)holdDie:(NSString*)userInput;
+-(void)resetDice;
+-(void)printHeldDice;
 
 @end
