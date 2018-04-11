@@ -12,7 +12,7 @@
 
 -(void)randomizeValue
 {
-    _m_CurrentValue = arc4random_uniform(6) + 1;
+    self.m_CurrentValue = arc4random_uniform(6) + 1;
 }
 
 @end
