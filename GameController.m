@@ -48,13 +48,19 @@
     {
         int i = [index intValue] - 1;
         [self.m_HeldDice addObject:(_m_Dice[i])];
-        [_m_Dice removeObject:(_m_Dice[i])];
     }
-    
+        
+    for(NSNumber *index in components)
+    {
+      int i = [index intValue] - 1;
+      [_m_Dice removeObject:(_m_Dice[i])];
+    }
+        
     for(Dice *dice in self.m_HeldDice)
     {
         NSLog(@"Holding Dice [%lu]",(unsigned long)[self.m_HeldDice indexOfObject:(dice)]);
     }
+        
     }
     
     
