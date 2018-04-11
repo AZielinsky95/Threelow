@@ -44,6 +44,11 @@
     
     for(NSNumber *dice in self.m_HeldDice)
     {
+        if([self.m_HeldDice[dice] m_CurrentValue] == 3)
+        {
+            continue;
+        }
+
         score += [self.m_HeldDice[dice] m_CurrentValue];
     }
     
