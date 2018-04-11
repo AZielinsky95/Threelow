@@ -26,11 +26,11 @@ int main(int argc, const char * argv[])
             
             if([userInput isEqualToString:(@"roll")])
             {
-                for (int i=0; i < controller.m_Dice.count; i++)
-                {
-                    [controller.m_Dice[i] randomizeValue];
-                    NSLog(@"Dice %d : %ld ",i,(long)controller.m_Dice[i].m_CurrentValue);
-                }
+               for(NSNumber *index in controller.m_Dice)
+               {
+                   [controller.m_Dice[index] randomizeValue];
+                   NSLog(@"Dice %@ : %ld ",index,(long)[controller.m_Dice[index] m_CurrentValue]);
+               }
             }
             
             NSLog(@"TYPE 'Dice Numbers to Hold'");

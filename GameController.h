@@ -11,8 +11,8 @@
 
 @interface GameController : NSObject
 
-@property NSMutableArray<Dice*>* m_Dice;
-@property NSMutableArray<Dice*>* m_HeldDice;
+@property NSMutableDictionary* m_Dice;
+@property NSMutableDictionary* m_HeldDice;
 
 -(void)holdDie:(NSString*)userInput;
 

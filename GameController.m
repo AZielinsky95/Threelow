@@ -21,14 +21,14 @@
         Dice *dice4 = [[Dice alloc] init];
         Dice *dice5 = [[Dice alloc] init];
         
-        _m_Dice = [[NSMutableArray alloc] init];
-        _m_HeldDice = [[NSMutableArray alloc] init];
+        _m_Dice = [[NSMutableDictionary alloc] init];
+        _m_HeldDice = [[NSMutableDictionary alloc] init];
         
-        [_m_Dice addObject:(dice1)];
-        [_m_Dice addObject:(dice2)];
-        [_m_Dice addObject:(dice3)];
-        [_m_Dice addObject:(dice4)];
-        [_m_Dice addObject:(dice5)];
+        _m_Dice[@(1)] = dice1;
+        _m_Dice[@(2)] = dice2;
+        _m_Dice[@(3)] = dice3;
+        _m_Dice[@(4)] = dice4;
+        _m_Dice[@(5)] = dice5;
     }
     return self;
 }
@@ -44,21 +44,27 @@
     {
         
     NSArray *components = [userInput componentsSeparatedByString:(@",")];
-    for(NSNumber *index in components)
-    {
-        int i = [index intValue] - 1;
-        [self.m_HeldDice addObject:(_m_Dice[i])];
-    }
         
-    for(NSNumber *index in components)
+    for(NSString *index in components)
     {
-      int i = [index intValue] - 1;
-      [_m_Dice removeObject:(_m_Dice[i])];
-    }
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        NSNumber *i =  [formatter numberFromString:(index)];
         
-    for(Dice *dice in self.m_HeldDice)
+        if(self.m_HeldDice[i])
+        {
+            _m_Dice[i] = self.m_HeldDice[i];
+            [_m_HeldDice removeObjectForKey:(i)];
+        }
+        else
+        {
+             _m_HeldDice[i] = self.m_Dice[i];
+             [_m_Dice removeObjectForKey:(i)];
+        }
+    }
+    
+    for(NSNumber *index in self.m_HeldDice)
     {
-        NSLog(@"Holding Dice [%lu]",(unsigned long)[self.m_HeldDice indexOfObject:(dice)]);
+        NSLog(@"Holding Dice [%@]", index);
     }
         
     }
